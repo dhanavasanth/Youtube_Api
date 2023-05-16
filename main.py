@@ -28,6 +28,15 @@ img = get_img_as_base64("media/bg.jpg")
 def load_lottiefile(filepath:str):
     with open(filepath,"r") as f:
         return json.load(f)
+    
+def build_youtube_client(api_key):
+    try:
+        youtube = build('youtube', 'v3', developerKey=api_key)
+        return youtube
+    except Exception as e:
+        st.error("Error occurred while building the YouTube API client.")
+        st.error(str(e))
+        return None
 
 page_bg_img = f"""
 
@@ -43,9 +52,6 @@ background:rgba(0,0,0,0);
 
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
-
-api_key = 'AIzaSyCuJBUkHaxeXIExkChui6fPGCNiuxU0dfE'
-youtube = build('youtube', 'v3', developerKey=api_key)
 
 connection = sqlite3.connect('youtube_data.db')
 cursor = connection.cursor()
@@ -92,40 +98,47 @@ if choice == "YOUTUBE API":
 
 
 if choice == "CHANNEL":
-    channel_name = st.text_input("Enter Channel Name")
-    if channel_name is not None:
-        data = get_channel_data(youtube,channel_name)
-        col1,col2,col3 = st.columns(3)
-        with col1:
-            st.image(data['thumbnail_image'],width=500)
-        with col2:
-            st.title(data['channel_name'])
-            st.write("---")
-            st.write(data)
-        with col3:
-            latest = get_latest(youtube,data['channel_id'])
-            st.header("Watch my Latest Video")
-            st.image(latest['thumbnail_url'],width=500)
-            st.header(latest['video_title'])
-            st.markdown("[Watch Now](https://www.youtube.com/watch?v="+latest['video_id']+")")
-            st.button("Subscribe",on_click=lambda:st.balloons())
-            col=st.columns(2)
-            with col2:
-                if st.button("SAVE THIS CHANNEL"):
-                    MongoClient = pymongo.MongoClient('mongodb+srv://danavasanth:Krishnaveni@cluster0.0azflq3.mongodb.net/')
-                    db = MongoClient['youtube_api']
-                    collection = db['channel_data']
-                    date = datetime.datetime.now()
-                    video = get_video_data(youtube,data['channel_id'],data['playlists'])
-                    Total_data = {"channel_name":data['channel_name'],
-                                  "Date":date,
-                                  "channel_data":data,
-                                  "playlists":video['Playlist_Data'],
-                                  "video_Data":video['video_Data']
-                                  }
-                    
-                    collection.insert_one(Total_data)
-                    st.success("Data Saved Successfully")
+    API = st.text_input("Enter API Key")
+    if not API:
+        st.error("Enter API Key")
+    else:
+        api_key = API
+        youtube = build_youtube_client(api_key)
+        if youtube:
+            channel_name = st.text_input("Enter Channel Name")
+            if channel_name:
+                data = get_channel_data(youtube,channel_name)
+                col1,col2,col3 = st.columns(3)
+                with col1:
+                    st.image(data['thumbnail_image'],width=500)
+                with col2:
+                    st.title(data['channel_name'])
+                    st.write("---")
+                    st.write(data)
+                with col3:
+                    latest = get_latest(youtube,data['channel_id'])
+                    st.header("Watch my Latest Video")
+                    st.image(latest['thumbnail_url'],width=500)
+                    st.header(latest['video_title'])
+                    st.markdown("[Watch Now](https://www.youtube.com/watch?v="+latest['video_id']+")")
+                    st.button("Subscribe",on_click=lambda:st.balloons())
+                    col=st.columns(2)
+                    with col2:
+                        if st.button("SAVE THIS CHANNEL"):
+                            MongoClient = pymongo.MongoClient('mongodb+srv://danavasanth:Krishnaveni@cluster0.0azflq3.mongodb.net/')
+                            db = MongoClient['youtube_api']
+                            collection = db['channel_data']
+                            date = datetime.datetime.now()
+                            video = get_video_data(youtube,data['channel_id'],data['playlists'])
+                            Total_data = {"channel_name":data['channel_name'],
+                                        "Date":date,
+                                        "channel_data":data,
+                                        "playlists":video['Playlist_Data'],
+                                        "video_Data":video['video_Data']
+                                        }
+                            
+                            collection.insert_one(Total_data)
+                            st.success("Data Saved Successfully")
     
 
 if choice == "SQL_TABLE's":
