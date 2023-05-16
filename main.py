@@ -44,7 +44,7 @@ background:rgba(0,0,0,0);
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-api_key = 'AIzaSyAtwih-nH2lc1NXnZDvX1sfPIGppMmmcxE'
+api_key = 'AIzaSyCuJBUkHaxeXIExkChui6fPGCNiuxU0dfE'
 youtube = build('youtube', 'v3', developerKey=api_key)
 
 connection = sqlite3.connect('youtube_data.db')
