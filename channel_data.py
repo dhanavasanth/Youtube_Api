@@ -108,6 +108,7 @@ def get_video_data(youtube, playlist_id, channel_id):
 
             # Retrieve video information
             video_info = {
+                "Playlist_Id": playlist_id,
                 "Video_Id": video_id,
                 "Video_Name": video_response['items'][0]['snippet']['title'],
                 "Video_Description": video_response['items'][0]['snippet']['description'],
