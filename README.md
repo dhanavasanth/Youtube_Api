@@ -34,7 +34,7 @@ To connect with youtube API via API_KEY and build library and get the required p
 API_KEY = 'YOUR_API_KEY'
 youtube = build('youtube', 'v3', developerKey=API_KEY)
 ```
-# Stramlit Interface
+# Streamlit Interface
 
 
 
