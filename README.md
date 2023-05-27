@@ -39,8 +39,7 @@ youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 
 ## Screenshots
-
-![App Screenshot](screenshots/home.png)
+![home](https://github.com/dhanavasanth/Youtube_Api/assets/117557948/70f2e214-9a7a-4917-b7f6-80a1726a58ce)
 
 
 # MongoDB Atlas
@@ -53,14 +52,14 @@ youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 ## Structuring four diffrent table
 
-![App Screenshot](screenshots/sqltable.png)
+![sqltable](https://github.com/dhanavasanth/Youtube_Api/assets/117557948/3c3a7d98-7fff-4a3c-96b8-8c10a009e530)
 
 
 # SQLITE3 - Query
 
 ## Query from SQLite3 table
 
-![App Screenshot](screenshots/query.png)
+![query](https://github.com/dhanavasanth/Youtube_Api/assets/117557948/b7388f5a-4e5f-49cb-b2b6-e924fc89831c)
 
 
 
@@ -68,7 +67,7 @@ youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 ## Generating QRcode for corresponding channel's 
 
-![App Screenshot](screenshots/qrcode.png)
+![qrcode](https://github.com/dhanavasanth/Youtube_Api/assets/117557948/54cc71b9-55eb-46f8-8947-0f3add4763b5)
 
 
 
