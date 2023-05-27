@@ -40,7 +40,8 @@ youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 ## Screenshots
 
-![Channel Data](src = 'screen shot/home.png)
+<img src="screen shot/home.png" alt="Mongodb">
+
 
 # MongoDB Atlas
 
@@ -52,20 +53,23 @@ youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 ## Structuring four diffrent table
 
-![SQLite3](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img src="screen shot/sql table.png" alt="sqltable">
+
 
 # SQLITE3 - Query
 
 ## Query from SQLite3 table
 
-![query](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img src="screen shot/query.png" alt="sqlquery">
+
 
 
 # QRCODE
 
 ## Generating QRcode for corresponding channel's 
 
-![QRcode](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img src="screen shot/qrcode.png" alt="qrcode">
+
 
 
 ## Support
