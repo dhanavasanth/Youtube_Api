@@ -50,9 +50,15 @@ youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 # SQLITE3
 
-## Structuring four diffrent table'
+## Structuring four diffrent table
 
 ![SQLite3](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+# SQLITE3 - Query
+
+## Query from SQLite3 table
+
+![query](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 
 # QRCODE
