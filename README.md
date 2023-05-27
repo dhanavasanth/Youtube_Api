@@ -40,7 +40,7 @@ youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 ## Screenshots
 
-<img src="screenshots/home.png" alt="home">
+<img src="screenshots/home.png">
 
 
 # MongoDB Atlas
