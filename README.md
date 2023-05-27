@@ -40,7 +40,7 @@ youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 ## Screenshots
 
-![Channel Data](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Channel Data](src = 'screen shot/home.png)
 
 # MongoDB Atlas
 
