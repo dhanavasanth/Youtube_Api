@@ -203,7 +203,7 @@ if choice == "SQL_QUERY's":
         st.dataframe(df)
     if select == "What are the names of all the channels that have published videos in the year 2022?":
         cursor.execute("SELECT DISTINCT channel_name,video_name,published_at FROM video_table WHERE strftime('%Y', Published_At) = '2022' ORDER BY published_at;")
-        df = pd.DataFrame(cursor.fetchall(),columns=['channel_name','Publish_At'])
+        df = pd.DataFrame(cursor.fetchall(),columns=['channel_name','video_name','Publish_At'])
         st.dataframe(df)    
     if select == "What is the average duration of all videos in each channel, and what are their corresponding channel names?":
         cursor.execute("SELECT DISTINCT channel_name,AVG(duration) FROM video_table GROUP BY channel_name;")
