@@ -98,7 +98,7 @@ if choice == "YOUTUBE API":
 
 
 if choice == "CHANNEL":
-    API = st.text_input("Enter API Key")
+    API = st.text_input("Enter API Key",type="password")
     if not API:
         st.info("Enter API Key")
     else:
