@@ -1,3 +1,4 @@
+#required libraries
 from googleapiclient.discovery import build
 from channel_data import get_channel_data, get_latest,get_video_data
 from sqlite import sql_channel_table, sql_playlist_table, sql_video_table,sql_comment_table
